@@ -44,7 +44,7 @@ func main() {
 	recipient := flag.String("recipient", "0x13d3c3bddd3531d11f92884bc49cb98255d51370", "Ticket recipient Eth address")
 	/*
 		ethAcctAddr := flag.String("ethAcctAddr", ".13d3c3bddd3531d11f92884bc49cb98255d51370", "Existing Eth account address")
-		ethPassword := flag.String("ethPassword", "test", "Password for existing Eth account address")
+		ethPassword := flag.String("ethPassword", "", "Password for existing Eth account address")
 		ethKeystorePath := flag.String("ethKeystorePath", "./", "Path for the Eth Key")
 		ethURL := flag.String("ethURL", "https://rinkeby.infura.io/v3/534bea718e1e4b85881761c876845cf8", "Ethereum node JSON-RPC URL")
 		ethController := flag.String("ethController", "0xA268AEa9D048F8d3A592dD7f1821297972D4C8Ea", "Protocol smart contract address")
