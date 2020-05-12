@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package proto;
+
+service TicketRedeemer {
+    rpc RedeemWinningTicket(Ticket) returns (google.protobuf.Empty) {}
+    rpc Redemptions(RedemptionsRequest) returns (stream Redemption) {}
+}
+
+message Ticket {
+    bytes recipient = 1;
+    bytes sender = 2;
+    bytes face_value = 3;
+    bytes win_prob = 4;
+    uint32 sender_nonce = 5;
+    bytes recipient_rand_hash = 6;
+    int64 creation_round = 7;
+    bytes creation_round_block_hash = 8;
+    bytes sig = 9;
+    bytes recipient_rand = 10;
+}
+
+message RedemptionsRequest {}
+
+message Redemption {
+
+    enum Stage {
+        PENDING = 0;
+        MINED   = 1;
+    }
+
+    message Result {
+        Stage stage = 1;
+        bytes tx = 2;
+        bytes sender = 3;
+        bytes value = 4;
+    }
+
+    oneof result{
+        Result data = 1;
+        string error = 2;
+    }
+}
